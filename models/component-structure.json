@@ -33,6 +33,30 @@
         "Display navigation",
         "User authentication status"
       ]
+    },
+    "DashboardPage": {
+      "type": "page",
+      "description": "User dashboard with analytics and activity",
+      "children": ["DashboardHeader", "StatsGrid", "ActivityFeed"],
+      "props": ["userId"],
+      "state": ["selectedPeriod", "isLoading"],
+      "hooks": ["useEffect", "useState", "useAPI"],
+      "responsibilities": [
+        "Display user statistics",
+        "Show recent activity",
+        "Allow period filtering"
+      ]
+    },
+    "StatsGrid": {
+      "type": "feature",
+      "description": "Grid of statistical cards",
+      "children": ["StatCard"],
+      "props": ["stats", "period"],
+      "state": [],
+      "responsibilities": [
+        "Display multiple stat cards",
+        "Format statistics"
+      ]
     }
   },
   "services": {

@@ -7,6 +7,7 @@ graph TD
     Router --> HomePage[HomePage]
     Router --> Dashboard[Dashboard]
     Router --> Profile[Profile]
+    Router --> DashboardPage[DashboardPage - NEW!]
     
     HomePage --> Header[Header]
     HomePage --> Hero[Hero]
@@ -21,6 +22,12 @@ graph TD
     Dashboard --> MainContent[MainContent]
     Dashboard --> Analytics[Analytics]
     
+    DashboardPage --> DashboardHeader[DashboardHeader]
+    DashboardPage --> StatsGrid[StatsGrid - NEW!]
+    DashboardPage --> ActivityFeed[ActivityFeed]
+    
+    StatsGrid --> StatCard[StatCard]
+    
     Profile --> ProfileHeader[ProfileHeader]
     Profile --> ProfileForm[ProfileForm]
     Profile --> SettingsPanel[SettingsPanel]
@@ -29,6 +36,8 @@ graph TD
     style HomePage fill:#4ecdc4
     style Dashboard fill:#4ecdc4
     style Profile fill:#4ecdc4
+    style DashboardPage fill:#4ecdc4
+    style StatsGrid fill:#a8dadc
 ```
 
 ## Component Types
