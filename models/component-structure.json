@@ -1,0 +1,60 @@
+{
+  "components": {
+    "App": {
+      "type": "root",
+      "description": "Main application container",
+      "children": ["Router", "ThemeProvider"],
+      "state": ["theme", "user"],
+      "responsibilities": [
+        "Global state management",
+        "Route configuration",
+        "Theme management"
+      ]
+    },
+    "HomePage": {
+      "type": "page",
+      "description": "Landing page component",
+      "children": ["Header", "Hero", "Features", "Footer"],
+      "props": ["user"],
+      "state": [],
+      "hooks": ["useEffect", "useState"],
+      "responsibilities": [
+        "Display landing content",
+        "Navigate to features"
+      ]
+    },
+    "Header": {
+      "type": "layout",
+      "description": "Navigation header",
+      "children": ["Logo", "Nav", "UserMenu"],
+      "props": ["isLoggedIn", "username"],
+      "state": ["menuOpen"],
+      "responsibilities": [
+        "Display navigation",
+        "User authentication status"
+      ]
+    }
+  },
+  "services": {
+    "AuthService": {
+      "description": "Handles authentication logic",
+      "methods": [
+        "login(credentials)",
+        "logout()",
+        "register(userData)",
+        "getCurrentUser()"
+      ],
+      "dependencies": ["API"]
+    },
+    "APIService": {
+      "description": "HTTP client wrapper",
+      "methods": [
+        "get(endpoint)",
+        "post(endpoint, data)",
+        "put(endpoint, data)",
+        "delete(endpoint)"
+      ],
+      "dependencies": ["axios"]
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ButtonProps": {
+      "type": "object",
+      "properties": {
+        "variant": {
+          "type": "string",
+          "enum": ["primary", "secondary", "outline", "ghost"]
+        },
+        "size": {
+          "type": "string",
+          "enum": ["sm", "md", "lg"]
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "loading": {
+          "type": "boolean"
+        },
+        "onClick": {
+          "type": "function"
+        },
+        "children": {
+          "type": "string"
+        }
+      },
+      "required": ["children"]
+    },
+    "CardProps": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string",
+          "format": "uri"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "children": {
+          "type": "object"
+        }
+      }
+    },
+    "FormInputProps": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["text", "email", "password", "number", "tel"]
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "error": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "onChange": {
+          "type": "function"
+        }
+      },
+      "required": ["name", "type"]
+    }
+  }
+}

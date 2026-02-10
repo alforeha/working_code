@@ -1,0 +1,45 @@
+{
+  "stateArchitecture": {
+    "approach": "Context API + Custom Hooks",
+    "alternative": "Consider Zustand or Redux Toolkit for complex state"
+  },
+  "contexts": {
+    "AuthContext": {
+      "state": {
+        "user": "User | null",
+        "isAuthenticated": "boolean",
+        "isLoading": "boolean"
+      },
+      "actions": {
+        "login": "(credentials) => Promise<void>",
+        "logout": "() => void",
+        "updateUser": "(userData) => void"
+      }
+    },
+    "ThemeContext": {
+      "state": {
+        "mode": "'light' | 'dark'",
+        "colors": "ColorScheme"
+      },
+      "actions": {
+        "toggleTheme": "() => void",
+        "setTheme": "(mode) => void"
+      }
+    }
+  },
+  "customHooks": {
+    "useAuth": {
+      "returns": "AuthContext values",
+      "usage": "Access user authentication state and methods"
+    },
+    "useTheme": {
+      "returns": "ThemeContext values",
+      "usage": "Access and control theme"
+    },
+    "useAPI": {
+      "params": ["endpoint", "options"],
+      "returns": "{ data, loading, error, refetch }",
+      "usage": "Fetch data from API with loading states"
+    }
+  }
+}
