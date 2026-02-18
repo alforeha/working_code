@@ -14,6 +14,36 @@ Mermaid is a text-based diagramming tool that creates visual graphics from simpl
 
 **Purpose**: Show component parent-child relationships
 
+### 2. Class Diagrams (UML)
+
+**Purpose**: Show component structure with props, state, and methods
+
+**Basic Syntax**:
+```mermaid
+classDiagram
+    class ComponentName {
+        +PropType propName
+        -StateType stateName
+        +methodName() ReturnType
+    }
+    
+    ParentComponent --> ChildComponent : contains
+    Component ..> Context : uses
+```
+
+**Key Elements**:
+- `+` = Public (props)
+- `-` = Private (state)
+- `-->` = Contains/Composition
+- `..>` = Uses/Dependency
+- `<<stereotype>>` = Special types (hook, context)
+
+---
+
+### 3. Component Hierarchy (Flowchart - Original)
+
+**Purpose**: Show component parent-child relationships
+
 **Basic Syntax**:
 ```mermaid
 graph TD
@@ -117,7 +147,43 @@ graph TB
 
 ## 🎨 Customization Examples
 
-### Example 1: E-commerce Component Tree
+### Example 1: Class Diagram - Component Structure
+
+```mermaid
+classDiagram
+    class TodoItem {
+        +Todo todo
+        +function onToggle
+        +function onDelete
+        -boolean isHovered
+        -handleMouseEnter() void
+        -handleDelete() void
+        +render() JSX
+    }
+    
+    class TodoList {
+        +Todo[] todos
+        +function onToggle
+        +function onDelete
+        -string filter
+        -filterTodos() Todo[]
+        +render() JSX
+    }
+    
+    class TodoContext {
+        <<context>>
+        +Todo[] todos
+        +addTodo(text) void
+        +toggleTodo(id) void
+        +deleteTodo(id) void
+    }
+    
+    TodoList --> TodoItem : renders multiple
+    TodoItem ..> TodoContext : uses
+    TodoList ..> TodoContext : uses
+```
+
+### Example 2: E-commerce Component Tree
 
 ```mermaid
 graph TD
